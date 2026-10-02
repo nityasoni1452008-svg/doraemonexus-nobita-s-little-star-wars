@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doraemonexus | Little Star Wars</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: #071225;
+  color: #fff;
+}
+
+header {
+  padding: 20px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0b1b36;
+  border-bottom: 1px solid #183965;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: 800;
+  color: #62b5ff;
+  letter-spacing: 1px;
+}
+
+nav a {
+  color: #d4e8ff;
+  text-decoration: none;
+  margin-left: 18px;
+  font-size: 14px;
+}
+
+.hero {
+  min-height: 440px;
+  padding: 65px 7%;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(90deg, #071225 5%, #071225e8 48%, #07122550),
+    radial-gradient(ellipse at 80% 20%, #164c91, transparent 65%);
+}
+
+.hero-content { max-width: 620px; }
+
+.tag {
+  color: #77c2ff;
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: clamp(32px, 6vw, 58px);
+  line-height: 1.1;
+  margin: 18px 0;
+}
+
+.hero p {
+  color: #b8cbe4;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.details {
+  color: #87b7e8;
+  font-size: 13px;
+  margin: 20px 0;
+}
+
+.button {
+  display: inline-block;
+  padding: 13px 23px;
+  border-radius: 30px;
+  background: #1685f8;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 5px 25px #1685f855;
+  transition: .2s;
+}
+
+.button:hover {
+  background: #45a4ff;
+  transform: translateY(-2px);
+}
+
+main { padding: 35px 6%; }
+
+.section-title {
+  font-size: 23px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #91a8c7;
+  font-size: 13px;
+  margin-bottom: 25px;
+}
+
+.playlist {
+  display: grid;
+  gap: 13px;
+}
+
+.part {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: #102440;
+  border: 1px solid #1e3c65;
+  border-radius: 15px;
+  transition: .2s;
+}
+
+.part:hover {
+  border-color: #53adff;
+  background: #153052;
+  transform: translateY(-2px);
+}
+
+.play-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #167de5, #65baff);
+  font-size: 19px;
+}
+
+.part-info { flex: 1; }
+.part-info h3 { font-size: 15px; margin-bottom: 6px; }
+.part-info p { font-size: 12px; color: #9cb2d0; }
+
+.part a {
+  color: #83c7ff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.note {
+  margin-top: 25px;
+  color: #91a8c7;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+footer {
+  text-align: center;
+  padding: 25px 15px;
+  border-top: 1px solid #183965;
+  color: #8ea7c8;
+  font-size: 12px;
+}
+
+@media (min-width: 750px) {
+  .playlist { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 500px) {
+  header { padding: 18px 5%; }
+  .logo { font-size: 17px; }
+  nav a { margin-left: 9px; font-size: 12px; }
+  .hero { min-height: 380px; padding: 50px 6%; }
+  main { padding: 30px 5%; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">DORAEMONEXUS 🔵</div>
+  <nav>
+    <a href="#movie">Movie</a>
+    <a href="#playlist">Parts</a>
+  </nav>
+</header>
+
+<section class="hero" id="movie">
+  <div class="hero-content">
+    <div class="tag">DORAEMON MOVIE COLLECTION</div>
+    <h1>Nobita's<br>Little Star Wars</h1>
+    <p>
+      A thrilling space adventure with Doraemon,
+      Nobita and their friends.
+      Discover the movie and explore its parts.
+    </p>
+    <div class="details">1985 &nbsp; • &nbsp; Hindi &nbsp; • &nbsp; Sci-Fi Adventure</div>
+    <a class="button" href="#playlist">Explore Parts ↓</a>
+  </div>
+</section>
+
+<main id="playlist">
+  <h2 class="section-title">Movie Playlist ✨</h2>
+  <p class="subtitle">Choose a part to open its Instagram Reel.</p>
+
+  <div class="playlist" id="parts"></div>
+
+  <p class="note">
+    This page organizes links to content. Instagram availability
+    and playback depend on Instagram's settings and the
+    original content's sharing permissions.
+  </p>
+</main>
+
+<footer>
+  <div class="logo">DORAEMONEXUS 🔵</div>
+  <p style="margin-top:10px">
+    Made with creativity by Doraemonexus
+  </p>
+</footer>
+
+<script>
+const reelLinks = [
+  "", "", "", "", ""
+];
+
+const playlist = document.getElementById("parts");
+
+reelLinks.forEach((link, index) => {
+  const number = index + 1;
+  const part = document.createElement("div");
+  part.className = "part";
+
+  const info = document.createElement("div");
+  info.className = "part-info";
+
+  const heading = document.createElement("h3");
+  heading.textContent = "Part " + number;
+
+  const description = document.createElement("p");
+  description.textContent = "Instagram Reel";
+
+  info.append(heading, description);
+
+  const icon = document.createElement("div");
+  icon.className = "play-icon";
+  icon.textContent = "▶";
+
+  const anchor = document.createElement("a");
+  anchor.textContent = link ? "Watch ↗" : "Add link";
+  anchor.href = link || "#";
+  if (link) {
+    anchor.target = "_blank";
+    anchor.rel = "noopener noreferrer";
+  } else {
+    anchor.addEventListener("click", event => {
+      event.preventDefault();
+      alert("Add your Instagram Reel URL in the code first.");
+    });
+  }
+
+  part.append(icon, info, anchor);
+  playlist.appendChild(part);
+});
+</script>
+
+</body>
+</html>
